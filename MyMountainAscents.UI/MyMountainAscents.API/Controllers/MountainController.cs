@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyMountainAscents.API.Context;
+using MyMountainAscents.API.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,19 @@ namespace MyMountainAscents.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllRollen()
+        public IActionResult GetAllMountains()
             => Ok(_appDbContext.Mountains);
+
+        [HttpPost]
+        public async Task<IActionResult> AddMountain([FromBody] Mountain mountain)          
+        {
+            if (mountain == null)
+                return BadRequest("Het meegestuurde object is leeg");
+
+            _appDbContext.Mountains.Add(mountain);
+            await _appDbContext.SaveChangesAsync();
+
+            return Created("Mountain", mountain);
+        }
     }
 }

@@ -11,7 +11,6 @@ namespace MyMountainAscents.UI.Pages
 
         protected void IncrementCount()
         {
-            System.Diagnostics.Debugger.Launch();
             CurrentCount++;
         }
 
