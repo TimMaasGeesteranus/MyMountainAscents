@@ -2,11 +2,9 @@
 @namespace MyMountainAscents.UI.Pages
 @using MyMountainAscents.Data.Entities
 
-<p>bergen:</p>
-
 @if (Mountains != null && Mountains.Any())
 {
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-between flex-wrap">
     @foreach (var mountain in Mountains)
     {
         <div class="p-2">
@@ -15,6 +13,5 @@
     }
         </div>
 }
-
 
 <button @onclick="AddMountain">Add Mountain</button>
