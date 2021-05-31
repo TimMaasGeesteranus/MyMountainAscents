@@ -3,26 +3,28 @@ using MyMountainAscents.Data.Entities;
 using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyMountainAscents.UI.Pages
 {
-    public partial class MountainOverview
+    public partial class AddMountain
     {
+        protected Mountain mountain = new();
+
         [Inject]
         IDataService DataService { get; set; }
 
-        protected List<Mountain> Mountains;
-
-        protected override async Task OnInitializedAsync()
+        public async Task Submit()
         {
             try
             {
-                Mountains = await DataService.GetAllMountains();
+                await DataService.AddMountain(mountain);
             }
-            catch
+            catch (Exception e)
             {
             }
         }
     }
 }
+
