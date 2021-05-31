@@ -15,6 +15,10 @@
         Country:
         <InputText maxlength="50" @bind-Value="mountain.Country" />
     </label>
+    <label>
+        Image:
+        <InputFile OnChange="UploadFile" />
+    </label>
 
     <button class="btn" @onclick="Submit">Add Mountain</button>
 </EditForm>

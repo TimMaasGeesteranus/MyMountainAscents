@@ -13,6 +13,7 @@ namespace MyMountainAscents.Data.Entities
         public int Height { get; set; }
         [Required]
         public string Country { get; set; }
+        public byte[] Image { get; set; }
         public List<Ascent> Ascents { get; set; }
     }
 }
