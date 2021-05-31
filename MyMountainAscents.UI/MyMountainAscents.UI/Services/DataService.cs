@@ -1,4 +1,4 @@
-﻿using MyMountainAscents.API.Entities;
+﻿using MyMountainAscents.Data.Entities;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;

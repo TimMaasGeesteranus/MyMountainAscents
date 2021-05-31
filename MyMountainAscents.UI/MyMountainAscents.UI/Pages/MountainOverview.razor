@@ -1,7 +1,20 @@
 @page "/mountainOverview"
 @namespace MyMountainAscents.UI.Pages
+@using MyMountainAscents.Data.Entities
 
 <p>bergen:</p>
-<MountainCard Title="Mount Everest"></MountainCard>
+
+@if (Mountains != null && Mountains.Any())
+{
+    <div class="d-flex justify-content-around">
+    @foreach (var mountain in Mountains)
+    {
+        <div class="p-2">
+        <MountainCard Mountain=mountain></MountainCard>
+            </div>
+    }
+        </div>
+}
+
+
 <button @onclick="AddMountain">Add Mountain</button>
-<p>@Error</p>

@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
-using MyMountainAscents.API.Entities;
+using MyMountainAscents.Data.Entities;
 using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyMountainAscents.UI.Pages
@@ -13,11 +12,21 @@ namespace MyMountainAscents.UI.Pages
         [Inject]
         IDataService DataService { get; set; }
 
-        public string Error = "alles prima";
+        protected List<Mountain> Mountains;
 
-        public async Task AddMountain()
+        protected override async Task OnInitializedAsync()
         {
-            Error = "Trying...";
+            try
+            {
+                Mountains= await DataService.GetAllMountains();
+            }
+            catch
+            {
+            }
+        }
+
+    public async Task AddMountain()
+        {
             Mountain mountain = new();
             mountain.Name = "Matterhorn";
             mountain.Country = "Zwitserland";
@@ -25,11 +34,9 @@ namespace MyMountainAscents.UI.Pages
             try
             {
                 await DataService.AddMountain(mountain);
-                Error = "Completed!";
             }
             catch (Exception e)
             {
-                Error = e.ToString();
             }
         }
     }

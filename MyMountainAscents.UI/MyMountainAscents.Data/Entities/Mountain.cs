@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyMountainAscents.API.Entities
+namespace MyMountainAscents.Data.Entities
 {
     public class Mountain
     {
