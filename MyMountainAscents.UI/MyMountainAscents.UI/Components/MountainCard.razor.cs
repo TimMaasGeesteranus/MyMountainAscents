@@ -12,5 +12,16 @@ namespace MyMountainAscents.UI.Components
         [Parameter]
         public Mountain Mountain { get; set; }
 
+        public string imgSrc;
+
+        protected override void OnInitialized()
+        {
+            if (Mountain.Image != null)
+            {
+                var base64 = Convert.ToBase64String(Mountain.Image);
+                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            }
+        }
+
     }
 }
