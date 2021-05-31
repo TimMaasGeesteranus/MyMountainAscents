@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMountainAscents.UI", "MyMountainAscents.UI\MyMountainAscents.UI.csproj", "{655A26F5-7D27-4A8C-9B01-04F87D13C97D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMountainAscents.API", "MyMountainAscents.API\MyMountainAscents.API.csproj", "{6B8906B9-8F7C-45CD-9878-054F9954929F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMountainAscents.API", "MyMountainAscents.API\MyMountainAscents.API.csproj", "{6B8906B9-8F7C-45CD-9878-054F9954929F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
