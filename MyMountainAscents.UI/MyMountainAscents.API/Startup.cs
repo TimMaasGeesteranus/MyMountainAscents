@@ -29,14 +29,6 @@ namespace MyMountainAscents.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(builder =>
-                builder
-                .AllowAnyMethod()
-                .AllowAnyHeader());
-            });
-
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -49,9 +41,9 @@ namespace MyMountainAscents.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(policy =>
-    policy.WithOrigins("https://localhost:44359")
-    .AllowAnyMethod()
-    .WithHeaders(HeaderNames.ContentType));
+                policy.WithOrigins("https://localhost:44359")
+                .AllowAnyMethod()
+                .WithHeaders(HeaderNames.ContentType));
 
             if (env.IsDevelopment())
             {
@@ -68,9 +60,6 @@ namespace MyMountainAscents.API
             {
                 endpoints.MapControllers();
             });
-
-
-
         }
     }
 }
