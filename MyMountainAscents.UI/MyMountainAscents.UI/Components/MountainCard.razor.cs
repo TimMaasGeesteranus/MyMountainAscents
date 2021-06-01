@@ -23,5 +23,10 @@ namespace MyMountainAscents.UI.Components
             }
         }
 
+        public void GoToDetails()
+        {
+
+        }
+
     }
 }
