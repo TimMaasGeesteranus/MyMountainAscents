@@ -5,11 +5,15 @@
 @if (Mountains != null && Mountains.Any())
 {
     <div class="d-flex justify-content-between flex-wrap">
-    @foreach (var mountain in Mountains)
-    {
-        <div class="p-2">
-        <MountainCard Mountain=mountain></MountainCard>
+        @foreach (var mountain in Mountains)
+        {
+            <div class="p-2">
+                <MountainCard Mountain=mountain></MountainCard>
             </div>
-    }
-        </div>
+        }
+    </div>
+}
+else
+{
+    <Spinner />
 }
