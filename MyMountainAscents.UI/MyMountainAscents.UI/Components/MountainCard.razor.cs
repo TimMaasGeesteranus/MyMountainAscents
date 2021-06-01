@@ -12,6 +12,9 @@ namespace MyMountainAscents.UI.Components
         [Parameter]
         public Mountain Mountain { get; set; }
 
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
         public string imgSrc;
 
         protected override void OnInitialized()
@@ -25,7 +28,7 @@ namespace MyMountainAscents.UI.Components
 
         public void GoToDetails()
         {
-
+            NavigationManager.NavigateTo($"mountainDetail/{Mountain.Id}");
         }
 
     }
