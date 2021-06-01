@@ -8,7 +8,6 @@ namespace MyMountainAscents.Data.Entities
     {
         [Key]
         public Guid Id { get; set; }
-
         [Required]
         public string Name { get; set; }
         public int Height { get; set; }
