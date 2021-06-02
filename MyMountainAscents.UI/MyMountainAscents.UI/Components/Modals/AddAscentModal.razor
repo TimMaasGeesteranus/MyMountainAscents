@@ -1,0 +1,37 @@
+﻿<EditForm Model="newAscent">
+    <div class="modal @Modal.Class" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" style="width:300px">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Ascent</h4>
+                    <button type="button" class="close" @onclick="Close">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <label>
+                        Date:
+                        <br />
+                        <InputDate @bind-Value="newAscent.Date" />
+                    </label>
+                    <br />
+                    <label>
+                        Description:
+                        <br />
+                        <InputTextArea style="resize:none" rows="3" maxlength="200" @bind-Value="newAscent.Comment" />
+                    </label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger mr-auto" @onclick="Close">Cancel</button>
+                    <button class="btn btn-primary" @onclick="AddAscent">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@if (Modal.ShowBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}

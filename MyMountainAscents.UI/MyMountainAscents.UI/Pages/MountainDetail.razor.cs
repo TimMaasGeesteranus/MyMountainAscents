@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MyMountainAscents.Data.Entities;
+using MyMountainAscents.UI.Components.Modals;
 using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace MyMountainAscents.UI.Pages
 
         [Inject]
         IDataService DataService { get; set; }
+
+        protected AddAscentModal AddAscentModal { get; set; }
 
         protected Mountain Mountain;
         protected string imgSrc;
