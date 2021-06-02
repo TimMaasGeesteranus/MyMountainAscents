@@ -1,0 +1,11 @@
+﻿@if (Ascents != null && Ascents.Any())
+{
+    foreach (var Ascent in Ascents)
+    {
+        <p>@Ascent.Date: @Ascent.Comment</p>
+    }
+}
+else
+{
+    <p>No Ascents yet...</p>
+}

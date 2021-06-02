@@ -17,17 +17,23 @@ namespace MyMountainAscents.UI.Pages
         IDataService DataService { get; set; }
 
         protected Mountain Mountain;
+        protected string imgSrc;
 
         protected override async Task OnInitializedAsync()
         {
             try
             {
                 Mountain = await DataService.GetMountainByGuid(Guid.Parse(Id));
+                var base64 = Convert.ToBase64String(Mountain.Image);
+                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
             }
             catch
             {
             }
         }
+
+        protected int GetAscents()
+            => Mountain.Ascents?.Count ?? 0;
 
     }
 }
