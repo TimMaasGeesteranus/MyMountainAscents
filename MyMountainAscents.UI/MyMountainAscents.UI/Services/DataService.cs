@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using RestSharp.Serialization;
+using System;
 
 namespace MyMountainAscents.UI.Services
 {
@@ -37,6 +38,14 @@ namespace MyMountainAscents.UI.Services
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<List<Mountain>>(content, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+
+        public async Task<Mountain> GetMountainByGuid(Guid guid)
+        {
+            using var response = await _httpClient.GetAsync($"https://localhost:44341/api/mountain/{guid}");
+            response.EnsureSuccessStatusCode();
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<Mountain>(content, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
     }
 }

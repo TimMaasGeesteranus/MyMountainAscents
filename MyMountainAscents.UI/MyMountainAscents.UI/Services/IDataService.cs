@@ -10,5 +10,6 @@ namespace MyMountainAscents.UI.Services
     {
         public Task<List<Mountain>> GetAllMountains();
         public Task<Mountain> AddMountain(Mountain mountain);
+        public Task<Mountain> GetMountainByGuid(Guid guid);
     }
 }

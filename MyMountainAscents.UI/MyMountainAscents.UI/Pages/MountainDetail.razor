@@ -1,2 +1,7 @@
 ﻿@page "/mountainDetail/{Id}"
 <p>details of id: @Id</p>
+
+@if(Mountain != null)
+            {
+                <p>@Mountain.Name</p>
+            }
