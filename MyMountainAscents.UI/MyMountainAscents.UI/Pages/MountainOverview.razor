@@ -12,14 +12,16 @@
             </div>
         }
     </div>
-
     <div class="position-fixed float-right" style="bottom: 10px; margin:20px;z-index: 1; right: 10px">
         <button @onclick="() => AddMountainModal.Open()" class="btn-lg btn-dark">&#43;</button>
     </div>
 }
 else if (Mountains != null && !Mountains.Any())
 {
-    <p>There are no mountains yet...</p>
+    <p>There are no mountains yet... Click the button to create one!</p>
+    <div class="position-fixed float-right" style="bottom: 10px; margin:20px;z-index: 1; right: 10px">
+        <button @onclick="() => AddMountainModal.Open()" class="btn-lg btn-dark">&#43;</button>
+    </div>
 }
 else
 {
