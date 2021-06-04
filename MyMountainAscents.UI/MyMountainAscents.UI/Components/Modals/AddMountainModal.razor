@@ -10,13 +10,24 @@
 
                 <div class="modal-body">
                     <label>
-                        Date:
+                        Name:
                         <br />
+                        <InputText maxlength="30" @bind-Value="@NewMountain.Name" />
                     </label>
                     <br />
                     <label>
-                        Description:
+                        Height:
                         <br />
+                        <InputNumber @bind-Value="@NewMountain.Height" />
+                    </label>
+                    <label>
+                        Country:
+                        <br />
+                        <InputText maxlength="30" @bind-Value="@NewMountain.Country" />
+                    </label>
+                    <label>
+                        Image:
+                        <InputFile OnChange="UploadFile" />
                     </label>
                 </div>
 

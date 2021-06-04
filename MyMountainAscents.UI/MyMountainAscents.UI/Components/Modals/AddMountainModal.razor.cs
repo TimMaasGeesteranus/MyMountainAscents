@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using MyMountainAscents.Data.Entities;
 using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,12 +40,20 @@ namespace MyMountainAscents.UI.Components.Modals
             try
             {
                 await DataService.AddMountain(NewMountain);
-                NavigationManager.NavigateTo($"/mountainDetail/{NewMountain.Id}", true);
+                NavigationManager.NavigateTo("/mountainOverview", true);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
+
+        public async Task UploadFile(InputFileChangeEventArgs e)
+        {
+            MemoryStream ms = new();
+            await e.File.OpenReadStream().CopyToAsync(ms);
+            var bytes = ms.ToArray();
+            NewMountain.Image = bytes;
         }
     }
 }
