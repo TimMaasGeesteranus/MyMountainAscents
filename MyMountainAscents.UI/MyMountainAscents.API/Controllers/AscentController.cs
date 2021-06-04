@@ -46,7 +46,7 @@ namespace MyMountainAscents.API.Controllers
                 .SingleOrDefault(m => m.Id == guid);
 
             if (ascent == null)
-                return NotFound("mountain not found");
+                return NotFound("ascent not found");
 
             _appDbContext.Ascents.Remove(ascent);
             await _appDbContext.SaveChangesAsync();

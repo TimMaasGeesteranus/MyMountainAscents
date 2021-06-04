@@ -17,6 +17,9 @@ namespace MyMountainAscents.UI.Pages
         [Inject]
         IDataService DataService { get; set; }
 
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+
         protected AddAscentModal AddAscentModal { get; set; }
 
         protected Mountain Mountain;
@@ -38,6 +41,19 @@ namespace MyMountainAscents.UI.Pages
 
         protected int GetAscents()
             => Mountain.Ascents?.Count ?? 0;
+
+        public async Task Delete()
+        {
+            try
+            {
+                await DataService.DeleteMountain(Mountain.Id);
+                NavigationManager.NavigateTo("/mountainOverview");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
 
     }
 }

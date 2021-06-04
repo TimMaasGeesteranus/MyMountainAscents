@@ -49,5 +49,24 @@ namespace MyMountainAscents.API.Controllers
 
             return Created("Mountain", mountain);
         }
+
+        [HttpDelete("{guid}")]
+        public async Task<IActionResult> DeleteMountain(Guid guid)
+        {
+            Mountain mountain = _appDbContext.Mountains
+                .Include(m => m.Ascents)
+                .SingleOrDefault(m => m.Id == guid);
+
+            if (mountain == null)
+                return NotFound("mountain not found");
+
+            foreach (Ascent ascent in mountain.Ascents)
+                _appDbContext.Ascents.Remove(ascent);
+
+            _appDbContext.Mountains.Remove(mountain);
+            await _appDbContext.SaveChangesAsync();
+
+            return Ok(mountain);
+        }
     }
 }
