@@ -13,6 +13,9 @@ namespace MyMountainAscents.UI.Components.Modals
         [Inject]
         IDataService DataService { get; set; }
 
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
+
         [Parameter]
         public Mountain Mountain { get; set; }
 
@@ -39,7 +42,7 @@ namespace MyMountainAscents.UI.Components.Modals
             try
             {
                 await DataService.AddAscent(newAscent, Mountain.Id);
-                Close();
+                NavigationManager.NavigateTo($"/mountainDetail/{Mountain.Id}", true);
             }
             catch (Exception e) {
                 Console.WriteLine(e);

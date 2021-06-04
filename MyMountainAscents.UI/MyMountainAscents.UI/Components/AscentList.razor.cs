@@ -13,14 +13,21 @@ namespace MyMountainAscents.UI.Components
         [Parameter]
         public List<Ascent> Ascents { get; set; }
 
+        [Parameter]
+        public Guid MountainGuid { get; set; }
+
         [Inject]
         IDataService DataService { get; set; }
+
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
 
         public async void Delete(Ascent ascent)
         {
             try
             {
                 await DataService.DeleteAscent(ascent.Id);
+                NavigationManager.NavigateTo($"/mountainDetail/{MountainGuid}", true);
             }
             catch (Exception e)
             {
