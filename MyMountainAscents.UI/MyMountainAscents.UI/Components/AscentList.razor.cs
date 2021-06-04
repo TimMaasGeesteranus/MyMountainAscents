@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MyMountainAscents.Data.Entities;
+using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,22 @@ namespace MyMountainAscents.UI.Components
     {
         [Parameter]
         public List<Ascent> Ascents { get; set; }
+
+        [Inject]
+        IDataService DataService { get; set; }
+
+        public async void Delete(Ascent ascent)
+        {
+            try
+            {
+                await DataService.DeleteAscent(ascent.Id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
     }
+    }
+
+
 }

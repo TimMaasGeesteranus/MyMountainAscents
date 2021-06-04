@@ -46,6 +46,14 @@ namespace MyMountainAscents.UI.Services
             return JsonSerializer.Deserialize<Mountain>(content, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
         }
 
+        public async Task<Ascent> DeleteAscent(Guid ascentGuid)
+        {
+            using var response = await _httpClient.DeleteAsync($"https://localhost:44341/api/ascent/{ascentGuid.ToString()}");
+            response.EnsureSuccessStatusCode();
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<Ascent>(content, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+
         public async Task<List<Mountain>> GetAllMountains()
         {
             using var response = await _httpClient.GetAsync("https://localhost:44341/api/mountain");

@@ -3,7 +3,11 @@
     Console.WriteLine(Ascents.ToString());
     foreach (var ascent in Ascents)
     {
-        <p><strong>@ascent.Date.Day-@ascent.Date.Month-@ascent.Date.Year:</strong> @ascent.Comment</p>
+<p>
+    <strong>@ascent.Date.Day-@ascent.Date.Month-@ascent.Date.Year:</strong> @ascent.Comment
+    <button @onclick="() => Delete(ascent)" class="btn-sm btn-danger">&times;</button>
+</p>
+
     }
 }
 else
