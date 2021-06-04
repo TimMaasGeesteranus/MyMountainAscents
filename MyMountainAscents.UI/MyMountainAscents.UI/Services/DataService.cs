@@ -18,6 +18,20 @@ namespace MyMountainAscents.UI.Services
             _httpClient = httpClient;
         }
 
+        public async Task<Ascent> AddAscent(Ascent ascent, Guid mountainGuid)
+        {
+            string jsonString = JsonSerializer.Serialize(ascent);
+            var request = new HttpRequestMessage(HttpMethod.Post, $"https://localhost:44341/api/ascent/{mountainGuid.ToString()}")
+            {
+                Content = new StringContent(jsonString, Encoding.UTF8, ContentType.Json)
+            };
+
+            using var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<Ascent>(content, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        }
+
         public async Task<Mountain> AddMountain(Mountain mountain)
         {
             string jsonString = JsonSerializer.Serialize(mountain);

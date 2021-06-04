@@ -13,6 +13,9 @@ namespace MyMountainAscents.UI.Components.Modals
         [Inject]
         IDataService DataService { get; set; }
 
+        [Parameter]
+        public Mountain Mountain { get; set; }
+
         protected Ascent newAscent = new();
 
         protected (bool ShowBackdrop, string Class) Modal = (false, "");
@@ -25,13 +28,22 @@ namespace MyMountainAscents.UI.Components.Modals
 
         public void Close()
         {
+            Console.WriteLine("0");
             Modal = (false, "");
             StateHasChanged();
         }
 
-        public void AddAscent()
+        public async void AddAscent()
         {
-            //doe iets
+            newAscent.Mountain = Mountain;
+            try
+            {
+                await DataService.AddAscent(newAscent, Mountain.Id);
+                Close();
+            }
+            catch (Exception e) {
+                Console.WriteLine(e);
+            }
         }
 
     }

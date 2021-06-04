@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyMountainAscents.Data.Entities
 {
@@ -11,7 +12,7 @@ namespace MyMountainAscents.Data.Entities
         public Mountain Mountain { get; set; }
 
         [Required]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         public string Comment { get; set; }
 
