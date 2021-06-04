@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MyMountainAscents.Data.Entities;
+using MyMountainAscents.UI.Components.Modals;
 using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace MyMountainAscents.UI.Pages
         IDataService DataService { get; set; }
 
         protected List<Mountain> Mountains;
+        protected AddMountainModal AddMountainModal { get; set; }
+
 
         protected override async Task OnInitializedAsync()
         {

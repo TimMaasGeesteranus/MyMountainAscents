@@ -2,7 +2,7 @@
 @namespace MyMountainAscents.UI.Pages
 @using MyMountainAscents.Data.Entities
 <div class="position-fixed float-right" style="bottom: 10px; margin:20px;z-index: 1; right: 10px">
-    <button class="btn-lg btn-dark">&#43;</button>
+    <button @onclick="() => AddMountainModal.Open()" class="btn-lg btn-dark">&#43;</button>
 </div>
 
 @if (Mountains != null && Mountains.Any())
@@ -24,3 +24,5 @@ else
 {
     <Spinner />
 }
+
+<MyMountainAscents.UI.Components.Modals.AddMountainModal @ref="AddMountainModal"/>
