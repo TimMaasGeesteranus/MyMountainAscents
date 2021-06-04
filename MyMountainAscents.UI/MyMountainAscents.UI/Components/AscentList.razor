@@ -1,8 +1,9 @@
 ﻿@if (Ascents != null && Ascents.Any())
 {
-    foreach (var Ascent in Ascents)
+    Console.WriteLine(Ascents.ToString());
+    foreach (var ascent in Ascents)
     {
-        <p>@Ascent.Date: @Ascent.Comment</p>
+        <p><strong>@ascent.Date.Day-@ascent.Date.Month-@ascent.Date.Year:</strong> @ascent.Comment</p>
     }
 }
 else

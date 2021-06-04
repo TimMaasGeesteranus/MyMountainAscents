@@ -9,9 +9,6 @@ namespace MyMountainAscents.Data.Entities
         public int Id { get; set; }
 
         [Required]
-        public Mountain Mountain { get; set; }
-
-        [Required]
         public DateTime Date { get; set; }
 
         public string Comment { get; set; }

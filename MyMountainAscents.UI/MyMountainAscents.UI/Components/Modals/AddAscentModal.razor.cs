@@ -22,6 +22,7 @@ namespace MyMountainAscents.UI.Components.Modals
 
         public void Open()
         {
+            newAscent.Date = DateTime.Now;
             Modal = (true, "show d-block");
             StateHasChanged();
         }
@@ -35,7 +36,6 @@ namespace MyMountainAscents.UI.Components.Modals
 
         public async void AddAscent()
         {
-            newAscent.Mountain = Mountain;
             try
             {
                 await DataService.AddAscent(newAscent, Mountain.Id);

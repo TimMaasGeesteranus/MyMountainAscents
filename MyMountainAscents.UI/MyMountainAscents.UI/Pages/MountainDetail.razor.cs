@@ -30,8 +30,9 @@ namespace MyMountainAscents.UI.Pages
                 var base64 = Convert.ToBase64String(Mountain.Image);
                 imgSrc = String.Format("data:image/gif;base64,{0}", base64);
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e);
             }
         }
 
