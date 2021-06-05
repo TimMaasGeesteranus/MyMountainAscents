@@ -20,16 +20,9 @@ namespace MyMountainAscents.API.Controllers
             _appDbContext = appDbContext;
         }
 
-        //[HttpGet]
-        //public IActionResult GetAllMountains2()
-        //    => Ok(_appDbContext.Mountains);
-
         [HttpGet]
-        public IActionResult GetAllMountains()
-        {
-            var mountains = _appDbContext.Mountains;
-            return Ok(mountains);
-        }
+        public IActionResult GetAllMountains2()
+            => Ok(_appDbContext.Mountains);
 
         [HttpGet("{guid}")]
         public IActionResult GetMountainByGuid(Guid guid)
