@@ -22,17 +22,8 @@
 
         <TextBlock Grid.Row="0" FontSize="40">Mountain overview</TextBlock>
         <Button Margin="10" Width="100" HorizontalAlignment="Right">Add mountain</Button>
-        
 
-        <!--<Label Grid.Row="1" Grid.Column="0">Names</Label>
-        <ListBox Grid.Row="2" Grid.Column="0" x:Name="lstNames" />
-
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5, 0, 0, 0">
-            <TextBox x:Name="txtName" />
-            <Button x:Name="btnAdd" Margin="0,5,0,0" Click="AddName">Add Name</Button>
-        </StackPanel>
-
-        <usercontrols:MountainCard />-->
+        <usercontrols:MountainCard Grid.Row="1" />
 
     </Grid>
 </Window>

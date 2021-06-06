@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyMountainAscents.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,20 @@ namespace MyMountainAscents.WPF.UserControls
     /// </summary>
     public partial class MountainCard : UserControl
     {
+        public List<Mountain> Mountains = new();
         public MountainCard()
         {
             InitializeComponent();
+            Mountain m1 = new();
+            Mountain m2 = new();
+            m1.Name = "Test1";
+            m2.Name = "Test2";
+            m1.Country = "CTest1";
+            m2.Country = "CTest2";
+            Mountains.Add(m1);
+            Mountains.Add(m2);
+
+            mountainList.ItemsSource = Mountains;
         }
 
         public void GoToDetail()

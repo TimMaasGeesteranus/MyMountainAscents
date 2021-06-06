@@ -7,6 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="200">
     <Grid>
-        <TextBlock>Hallo</TextBlock>
+        <ItemsControl x:Name="mountainList">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10" Background="Green">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="{Binding Name}"></TextBlock>
+                        <TextBlock Grid.Row="1" Text="{Binding Name}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>

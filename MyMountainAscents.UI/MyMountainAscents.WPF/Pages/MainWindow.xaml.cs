@@ -24,11 +24,5 @@ namespace MyMountainAscents.WPF
         {
             InitializeComponent();
         }
-
-        public void AddName(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
-                lstNames.Items.Add(txtName.Text);
-        }
     }
 }
