@@ -1,0 +1,38 @@
+﻿<Window x:Class="MyMountainAscents.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyMountainAscents.WPF" 
+        xmlns:usercontrols="clr-namespace:MyMountainAscents.WPF.UserControls"
+        mc:Ignorable="d"
+        Title="MyMountainAscents" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <TextBlock Grid.Row="0" FontSize="40">Mountain overview</TextBlock>
+        <Button Margin="10" Width="100" HorizontalAlignment="Right">Add mountain</Button>
+        
+
+        <!--<Label Grid.Row="1" Grid.Column="0">Names</Label>
+        <ListBox Grid.Row="2" Grid.Column="0" x:Name="lstNames" />
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5, 0, 0, 0">
+            <TextBox x:Name="txtName" />
+            <Button x:Name="btnAdd" Margin="0,5,0,0" Click="AddName">Add Name</Button>
+        </StackPanel>
+
+        <usercontrols:MountainCard />-->
+
+    </Grid>
+</Window>

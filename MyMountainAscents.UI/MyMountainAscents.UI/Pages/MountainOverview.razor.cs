@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MyMountainAscents.Data.Entities;
+using MyMountainAscents.Data.Services;
 using MyMountainAscents.UI.Components.Modals;
-using MyMountainAscents.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

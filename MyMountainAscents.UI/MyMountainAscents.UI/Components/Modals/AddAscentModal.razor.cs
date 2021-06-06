@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MyMountainAscents.Data.Entities;
-using MyMountainAscents.UI.Services;
+using MyMountainAscents.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

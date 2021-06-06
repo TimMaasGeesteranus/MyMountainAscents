@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using RestSharp.Serialization;
 using System;
 
-namespace MyMountainAscents.UI.Services
+namespace MyMountainAscents.Data.Services
 {
     public class DataService : IDataService
     {

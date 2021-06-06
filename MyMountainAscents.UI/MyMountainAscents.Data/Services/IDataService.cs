@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyMountainAscents.UI.Services
+namespace MyMountainAscents.Data.Services
 {
     public interface IDataService
     {
