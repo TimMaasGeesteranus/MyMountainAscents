@@ -16,7 +16,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="10" Background="Green">
+                    <Grid Margin="10" Background="LightGray">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
