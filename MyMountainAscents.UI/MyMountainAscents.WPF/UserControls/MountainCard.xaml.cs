@@ -1,4 +1,5 @@
 ﻿using MyMountainAscents.Data.Entities;
+using MyMountainAscents.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,15 +17,22 @@ using System.Windows.Shapes;
 
 namespace MyMountainAscents.WPF.UserControls
 {
-    /// <summary>
-    /// Interaction logic for MountainCard.xaml
-    /// </summary>
     public partial class MountainCard : UserControl
     {
         public List<Mountain> Mountains = new();
+
         public MountainCard()
         {
             InitializeComponent();
+
+            FillMountainsHardcoded();
+            //FillMountainsAPI();
+
+            mountainList.ItemsSource = Mountains;
+        }
+
+        public void FillMountainsHardcoded()
+        {
             Mountain m1 = new();
             Mountain m2 = new();
             m1.Name = "Test1";
@@ -33,8 +41,11 @@ namespace MyMountainAscents.WPF.UserControls
             m2.Country = "CTest2";
             Mountains.Add(m1);
             Mountains.Add(m2);
+        }
 
-            mountainList.ItemsSource = Mountains;
+        public async void FillMountainsAPI()
+        {
+           // Mountains = await DataService.GetAllMountains();
         }
 
         public void GoToDetail()
