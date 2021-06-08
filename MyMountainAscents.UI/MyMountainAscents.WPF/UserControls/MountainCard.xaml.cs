@@ -3,7 +3,9 @@ using MyMountainAscents.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MyMountainAscents.WPF.UserControls
 {
@@ -21,12 +24,12 @@ namespace MyMountainAscents.WPF.UserControls
     {
         public List<Mountain> Mountains = new();
 
+
         public MountainCard()
         {
             InitializeComponent();
 
             FillMountainsHardcoded();
-            //FillMountainsAPI();
 
             mountainList.ItemsSource = Mountains;
         }
@@ -43,9 +46,28 @@ namespace MyMountainAscents.WPF.UserControls
             Mountains.Add(m2);
         }
 
-        public async void FillMountainsAPI()
+        public async void AddMountainsFromAPI(object sende, RoutedEventArgs e)
         {
-           // Mountains = await DataService.GetAllMountains();
+            Mountains.AddRange(await GetAllMountains());
+            Mountains.Add(new Mountain());
+            mountainList.ItemsSource = Mountains;
+        }
+
+
+        public async Task<List<Mountain>> GetAllMountains()
+        {
+            try
+            {
+                using HttpClient httpClient = new();
+                using var response = await httpClient.GetAsync("https://localhost:44341/api/mountain");
+                response.EnsureSuccessStatusCode();
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<List<Mountain>>(content, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public void GoToDetail()
