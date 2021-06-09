@@ -18,11 +18,9 @@ namespace MyMountainAscents.UWP
 {
     public sealed partial class MainPage : Page
     {
-        public MountainCollectionViewModel Mountains { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
-            Mountains = new MountainCollectionViewModel();
         }
     }
 }
