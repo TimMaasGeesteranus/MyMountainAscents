@@ -12,7 +12,6 @@ namespace MyMountainAscents.UWP.UserControls
         {
             this.InitializeComponent();
             Mountains = new MountainCollectionViewModel();
-
         }
     }
 }

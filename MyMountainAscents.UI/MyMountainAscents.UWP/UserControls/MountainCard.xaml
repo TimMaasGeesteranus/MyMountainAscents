@@ -13,12 +13,23 @@
     <Grid>
         <GridView ItemsSource="{x:Bind Mountains.MountainCollection.Mountains}">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="models:Mountain">
-                    <Grid Width="200" Height="400">
-                        <TextBlock Text="{x:Bind Name}" />
-                    </Grid>
+                <DataTemplate x:Name="ImageTextDataTemplate" x:DataType="models:Mountain">
+                    <StackPanel Height="280" Width="180" Margin="40" AutomationProperties.Name="{x:Bind Name}" Background="#2f2f2f">
+                        <Image Source="Placeholder.png" Height="180" Width="180" Stretch="UniformToFill"/>
+                        <StackPanel Margin="0,12">
+                            <TextBlock Text="{x:Bind Name}"/>
+                            <TextBlock Text="{x:Bind Country}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="10" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
         </GridView>
+
+
     </Grid>
 </UserControl>
