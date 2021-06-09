@@ -8,6 +8,11 @@ namespace MyMountainAscents.UWP.Models
 {
     public class MountainCollection
     {
-        List<Mountain> Mountains { get; set; }
+        public List<Mountain> Mountains { get; set; }
+
+        public MountainCollection()
+        {
+
+        }
     }
 }

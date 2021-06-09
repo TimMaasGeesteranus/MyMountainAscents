@@ -1,5 +1,4 @@
-﻿using MyMountainAscents.UWP.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,15 +13,15 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace MyMountainAscents.UWP
+// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+
+namespace MyMountainAscents.UWP.UserControls
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MountainCard : UserControl
     {
-        public MountainCollectionViewModel Mountains { get; set; }
-        public MainPage()
+        public MountainCard()
         {
             this.InitializeComponent();
-            Mountains = new MountainCollectionViewModel();
         }
     }
 }

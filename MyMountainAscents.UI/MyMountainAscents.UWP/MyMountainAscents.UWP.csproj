@@ -126,6 +126,9 @@
     <Compile Include="Models\Mountain.cs" />
     <Compile Include="Models\MountainCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\MountainCard.xaml.cs">
+      <DependentUpon>MountainCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MountainCollectionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +154,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\MountainCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

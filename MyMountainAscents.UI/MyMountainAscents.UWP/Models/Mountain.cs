@@ -14,5 +14,8 @@ namespace MyMountainAscents.UWP.Models
         public string Country { get; set; }
         public byte[] Image { get; set; }
         public List<Ascent> Ascents { get; set; }
+
+        public Mountain(string name, int height, string country)
+            => (Name, Height, Country) = (name, height, country);
     }
 }
