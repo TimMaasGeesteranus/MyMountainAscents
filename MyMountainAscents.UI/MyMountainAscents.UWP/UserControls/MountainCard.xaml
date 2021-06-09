@@ -11,16 +11,12 @@
     d:DesignWidth="400">
 
     <Grid>
-        <StackPanel>
-            <ListView ItemsSource="{x:Bind Mountains.MountainCollection.Mountains}">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Mountain">
-                        <TextBlock Text="{x:Bind Name}" />
-                    </DataTemplate>
-
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-
+        <GridView ItemsSource="{x:Bind Mountains.MountainCollection.Mountains}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:Mountain">
+                    <TextBlock Text="{x:Bind Name}" />
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </UserControl>
