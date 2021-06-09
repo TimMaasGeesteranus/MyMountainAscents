@@ -14,7 +14,9 @@
         <GridView ItemsSource="{x:Bind Mountains.MountainCollection.Mountains}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="models:Mountain">
-                    <TextBlock Text="{x:Bind Name}" />
+                    <Grid Width="200" Height="400">
+                        <TextBlock Text="{x:Bind Name}" />
+                    </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
