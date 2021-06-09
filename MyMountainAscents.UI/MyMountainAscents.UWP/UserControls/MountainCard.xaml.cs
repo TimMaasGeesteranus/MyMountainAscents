@@ -1,6 +1,12 @@
 ﻿using MyMountainAscents.UWP.ViewModels;
+using System;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace MyMountainAscents.UWP.UserControls
 {
@@ -12,6 +18,20 @@ namespace MyMountainAscents.UWP.UserControls
         {
             this.InitializeComponent();
             Mountains = new MountainCollectionViewModel();
+        }
+
+        public static ImageSource DoeIets(byte[] imageBytes)
+        {
+
+            BitmapImage image = new BitmapImage();
+            InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream();
+            ms.AsStreamForWrite().Write(imageBytes, 0, imageBytes.Length);
+            ms.Seek(0);
+
+            image.SetSource(ms);
+            ImageSource src = image;
+
+            return src;
         }
     }
 }
