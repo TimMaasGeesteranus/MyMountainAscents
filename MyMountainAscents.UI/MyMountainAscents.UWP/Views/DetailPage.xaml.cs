@@ -33,7 +33,6 @@ namespace MyMountainAscents.UWP.Views
         {
             Mountain = (Mountain)e.Parameter;
             SetMountainValues();
-
             base.OnNavigatedTo(e);
         }
 
