@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Name="greeting" />
+        <TextBlock Name="name" />
+        <TextBlock Name="country"/>
     </Grid>
 </Page>

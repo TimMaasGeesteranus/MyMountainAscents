@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyMountainAscents.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace MyMountainAscents.UWP.Views
     /// </summary>
     public sealed partial class DetailPage : Page
     {
+        Mountain Mountain;
         public DetailPage()
         {
             this.InitializeComponent();
@@ -29,7 +31,9 @@ namespace MyMountainAscents.UWP.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            greeting.Text = e.Parameter.ToString();
+            Mountain = (Mountain)e.Parameter;
+            name.Text = Mountain.Name;
+            country.Text = Mountain.Country;
             base.OnNavigatedTo(e);
         }
     }

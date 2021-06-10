@@ -44,8 +44,10 @@ namespace MyMountainAscents.UWP.UserControls
 
         private void GoToDetails(object sender, RoutedEventArgs e)
         {
+            var button = sender as Button;
+            var mountain = button.Tag;
             Frame frame = Window.Current.Content as Frame;
-            frame.Navigate(typeof(DetailPage), "hallo");
+            frame.Navigate(typeof(DetailPage), mountain);
         }
     }
 }
