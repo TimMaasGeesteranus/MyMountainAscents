@@ -43,5 +43,12 @@ namespace MyMountainAscents.UWP.Views
             height.Text = Mountain.Height.ToString();
             ascents.Text = Mountain.Ascents?.Count.ToString() ?? "0";
         }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(MainPage));
+        }
     }
 }

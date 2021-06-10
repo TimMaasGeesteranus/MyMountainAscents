@@ -17,7 +17,7 @@
 
 
         <TextBlock Name="name" Text="Name" FontSize="40" HorizontalAlignment="Center" />
-        <Button HorizontalAlignment="Left" Content="Back" />
+        <Button Click="GoBack" HorizontalAlignment="Left" Content="Back" />
         <Button HorizontalAlignment="Right" Content="Add ascent" />
 
         <Grid Grid.Row="1" Margin="20">
