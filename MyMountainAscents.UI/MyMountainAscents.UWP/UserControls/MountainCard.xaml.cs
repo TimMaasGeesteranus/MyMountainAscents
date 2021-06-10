@@ -1,6 +1,7 @@
 ﻿using MyMountainAscents.UWP.ViewModels;
 using System;
 using System.IO;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
@@ -20,18 +21,23 @@ namespace MyMountainAscents.UWP.UserControls
             Mountains = new MountainCollectionViewModel();
         }
 
+        //public static ImageSource DoeIets(byte[] imageBytes)
+        //{
+        //    BitmapImage image = new BitmapImage();
+        //    InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream();
+        //    ms.AsStreamForWrite().Write(imageBytes, 0, imageBytes.Length);
+        //    ms.Seek(0);
+
+        //    image.SetSource(ms);
+        //    ImageSource src = image;
+
+        //    return src;
+        //}
+
         public static ImageSource DoeIets(byte[] imageBytes)
         {
-
-            BitmapImage image = new BitmapImage();
-            InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream();
-            ms.AsStreamForWrite().Write(imageBytes, 0, imageBytes.Length);
-            ms.Seek(0);
-
-            image.SetSource(ms);
-            ImageSource src = image;
-
-            return src;
+            ImageSource result = new BitmapImage(new Uri("ms-appx:///Assets/Mountains/Matterhorn.png"));
+            return result;
         }
     }
 }
