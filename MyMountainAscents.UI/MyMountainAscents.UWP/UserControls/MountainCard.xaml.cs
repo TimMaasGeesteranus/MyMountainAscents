@@ -45,7 +45,7 @@ namespace MyMountainAscents.UWP.UserControls
         private void GoToDetails(object sender, RoutedEventArgs e)
         {
             Frame frame = Window.Current.Content as Frame;
-            frame.Navigate(typeof(DetailPage));
+            frame.Navigate(typeof(DetailPage), "hallo");
         }
     }
 }
