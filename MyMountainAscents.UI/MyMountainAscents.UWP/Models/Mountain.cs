@@ -24,5 +24,7 @@ namespace MyMountainAscents.UWP.Models
 
         public Mountain(string name, int height, string country, byte[] image)
             => (Name, Height, Country, Image) = (name, height, country, image);
+
+        public Mountain() { }
     }
 }
