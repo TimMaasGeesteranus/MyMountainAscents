@@ -19,7 +19,7 @@
                         <StackPanel Margin="10">
                             <TextBlock Text="{x:Bind Name}"/>
                             <TextBlock Text="{x:Bind Country}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
-                            <Button>Details</Button>
+                            <Button Click="Button_Click">Details</Button>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

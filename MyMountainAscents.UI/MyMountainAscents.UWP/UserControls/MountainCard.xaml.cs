@@ -1,10 +1,12 @@
 ﻿using MyMountainAscents.UWP.ViewModels;
+using MyMountainAscents.UWP.Views;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -38,6 +40,12 @@ namespace MyMountainAscents.UWP.UserControls
         {
             ImageSource result = new BitmapImage(new Uri("ms-appx:///Assets/Mountains/Matterhorn.png"));
             return result;
+        }
+
+        private void GoToDetails(object sender, RoutedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(DetailPage));
         }
     }
 }
