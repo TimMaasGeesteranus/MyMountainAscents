@@ -32,9 +32,17 @@ namespace MyMountainAscents.UWP.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Mountain = (Mountain)e.Parameter;
+            SetMountainValues();
+
+            base.OnNavigatedTo(e);
+        }
+
+        private void SetMountainValues()
+        {
             name.Text = Mountain.Name;
             country.Text = Mountain.Country;
-            base.OnNavigatedTo(e);
+            height.Text = Mountain.Height.ToString();
+            ascents.Text = Mountain.Ascents?.Count.ToString() ?? "0";
         }
     }
 }
