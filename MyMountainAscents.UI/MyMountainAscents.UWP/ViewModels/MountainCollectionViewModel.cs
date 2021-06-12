@@ -8,11 +8,13 @@ namespace MyMountainAscents.UWP.ViewModels
     {
         public MountainCollection MountainCollection;
 
-        public MountainCollectionViewModel()
+        public MountainCollectionViewModel(List<Mountain> mountains)
         {
             MountainCollection = new MountainCollection();
+            MountainCollection.Mountains = new List<Mountain>();
+            MountainCollection.Mountains.AddRange(mountains);
 
-            SeedMountainCollection();
+            //SeedMountainCollection();
         }
 
         private void SeedMountainCollection()

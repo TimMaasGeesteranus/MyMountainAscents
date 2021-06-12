@@ -24,7 +24,7 @@ namespace MyMountainAscents.UWP
 {
     public sealed partial class MainPage : Page
     {
-        public MountainCollectionViewModel Mountains;
+        public List<Mountain> Mountains;
         public string Test;
 
 
@@ -53,8 +53,8 @@ namespace MyMountainAscents.UWP
                     {
                         httpResponseBody = await response.Content.ReadAsStringAsync();
                         var result = JsonConvert.DeserializeObject<List<Mountain>>(httpResponseBody);
-                        Mountains = new MountainCollectionViewModel();
-                        Mountains.MountainCollection.Mountains = result;
+                        Mountains = new List<Mountain>();
+                        Mountains = result;
                         Test = "Well Hello There";
                         this.InitializeComponent();
                     }

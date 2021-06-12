@@ -1,6 +1,8 @@
-﻿using MyMountainAscents.UWP.ViewModels;
+﻿using MyMountainAscents.UWP.Models;
+using MyMountainAscents.UWP.ViewModels;
 using MyMountainAscents.UWP.Views;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -17,12 +19,19 @@ namespace MyMountainAscents.UWP.UserControls
     public sealed partial class MountainCard : UserControl
     {
         public MountainCollectionViewModel Mountains { get; set; }
+
+        private List<Mountain> mountainList;
+        public List<Mountain> MountainList {
+            get { return MountainList; }
+            set { mountainList = value;
+                Mountains = new MountainCollectionViewModel(mountainList);
+            } }
         public string TestText { get; set; }
 
-        public MountainCard()
+        public MountainCard() //Waarom is testText hier null??
         {
             this.InitializeComponent();
-            Mountains = new MountainCollectionViewModel();
+            //Mountains = new MountainCollectionViewModel(MountainList);
         }
 
 
