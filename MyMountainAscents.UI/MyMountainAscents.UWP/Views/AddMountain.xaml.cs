@@ -48,5 +48,21 @@ namespace MyMountainAscents.UWP.Views
             var bytes = new byte[(int)stream.Length];
             stream.Read(bytes, 0, (int)stream.Length);
         }
+
+        private void Submit(object sender, RoutedEventArgs e)
+        {
+            if (InputValid())
+                AddMountainToAPI();
+        }
+
+        private bool InputValid()
+        {
+            return true;
+        }
+
+        private void AddMountainToAPI()
+        {
+
+        }
     }
 }

@@ -35,6 +35,8 @@
 
                 <TextBlock Margin="0, 20, 0, 0">Image:</TextBlock>
                 <Button Name="uploadButton" Click="AddImage" Content="Upload" />
+
+                <Button Name="submitButton" Click="Submit" Content="Submit" Margin="0, 40, 0, 0" HorizontalAlignment="Right" />
             </StackPanel>
         </Grid>
 
