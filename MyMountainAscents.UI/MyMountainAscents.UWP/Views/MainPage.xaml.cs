@@ -3,10 +3,12 @@ using MyMountainAscents.UWP.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -22,9 +24,21 @@ namespace MyMountainAscents.UWP
 {
     public sealed partial class MainPage : Page
     {
+        public MountainCollectionViewModel Mountains;
+        private string test;
+        public string Test
+        {
+            get { return this.test; }
+            set
+            {
+                this.test = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public MainPage()
         {
-            this.InitializeComponent();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -47,14 +61,23 @@ namespace MyMountainAscents.UWP
                     {
                         httpResponseBody = await response.Content.ReadAsStringAsync();
                         var result = JsonConvert.DeserializeObject<List<Mountain>>(httpResponseBody);
+                        Mountains = new MountainCollectionViewModel();
+                        Mountains.MountainCollection.Mountains = result;
+                        Test = "Well Hello There";
+                        this.InitializeComponent();
                     }
                 }
             }
-            catch(Exception f)
+            catch (Exception f)
             {
                 var test = f;
             }
         }
 
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            // Raise the PropertyChanged event, passing the name of the property whose value has changed.
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

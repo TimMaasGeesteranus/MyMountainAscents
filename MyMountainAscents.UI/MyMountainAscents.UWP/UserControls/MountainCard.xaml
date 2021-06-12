@@ -11,6 +11,8 @@
     d:DesignWidth="400">
 
     <Grid>
+        <TextBlock Name="test" Text="{x:Bind TestText}"/>
+
         <GridView ItemsSource="{x:Bind Mountains.MountainCollection.Mountains}">
             <GridView.ItemTemplate>
                 <DataTemplate x:Name="ImageTextDataTemplate" x:DataType="models:Mountain">

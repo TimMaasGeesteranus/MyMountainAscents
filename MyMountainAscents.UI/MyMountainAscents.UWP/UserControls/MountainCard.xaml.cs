@@ -10,18 +10,21 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 
 namespace MyMountainAscents.UWP.UserControls
 {
     public sealed partial class MountainCard : UserControl
     {
         public MountainCollectionViewModel Mountains { get; set; }
+        public string TestText { get; set; }
 
         public MountainCard()
         {
             this.InitializeComponent();
             Mountains = new MountainCollectionViewModel();
         }
+
 
         //public static ImageSource DoeIets(byte[] imageBytes)
         //{
