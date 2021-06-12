@@ -25,7 +25,6 @@ namespace MyMountainAscents.UWP
     public sealed partial class MainPage : Page
     {
         public List<Mountain> Mountains;
-        public string Test;
 
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -55,7 +54,6 @@ namespace MyMountainAscents.UWP
                         var result = JsonConvert.DeserializeObject<List<Mountain>>(httpResponseBody);
                         Mountains = new List<Mountain>();
                         Mountains = result;
-                        Test = "Well Hello There";
                         this.InitializeComponent();
                     }
                 }

@@ -22,7 +22,7 @@
         <TextBlock Grid.Row="0" FontSize="40" Text="Mountain overview" Name="title" />
         <Button Grid.Row="0" Content="Add Mountain" HorizontalAlignment="Right" />
 
-        <usercontrols:MountainCard Grid.Row="1" Margin="40" TestText="{x:Bind Test}" MountainList="{x:Bind Mountains}" Name="mountaincard"/>
+        <usercontrols:MountainCard Grid.Row="1" Margin="40" MountainList="{x:Bind Mountains}" Name="mountaincard"/>
 
     </Grid>
 </Page>

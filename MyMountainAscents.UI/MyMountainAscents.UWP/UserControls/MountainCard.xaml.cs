@@ -26,12 +26,10 @@ namespace MyMountainAscents.UWP.UserControls
             set { mountainList = value;
                 Mountains = new MountainCollectionViewModel(mountainList);
             } }
-        public string TestText { get; set; }
 
-        public MountainCard() //Waarom is testText hier null??
+        public MountainCard()
         {
             this.InitializeComponent();
-            //Mountains = new MountainCollectionViewModel(MountainList);
         }
 
 
