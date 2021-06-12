@@ -32,6 +32,10 @@
 
                 <TextBlock Margin="0, 20, 0, 0">Height:</TextBlock>
                 <muxc:NumberBox Value="20" />
+
+                <TextBlock Margin="0, 20, 0, 0">Image:</TextBlock>
+                <Button Click="AddImage">Upload</Button>
+                <TextBlock x:Name="OutputTextBlock"></TextBlock>
             </StackPanel>
         </Grid>
 
