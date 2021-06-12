@@ -1,10 +1,12 @@
 ﻿using MyMountainAscents.UWP.Models;
+using MyMountainAscents.UWP.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -50,6 +52,13 @@ namespace MyMountainAscents.UWP
             {
                 var test = f;
             }
+        }
+
+        private void GoToAddMountain(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(AddMountain));
         }
     }
 }
