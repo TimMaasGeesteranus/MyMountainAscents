@@ -10,6 +10,11 @@ namespace MyMountainAscents.UWP.Views
 {
     public sealed partial class AddMountain : Page
     {
+        public string MountainName { get; set; }
+        public string MountainCountry { get; set; }
+        public int MountainHeight { get; set; }
+        public byte[] MountainImage { get; set; }
+
         public AddMountain()
         {
             this.InitializeComponent();
@@ -47,10 +52,15 @@ namespace MyMountainAscents.UWP.Views
             var stream = await image.OpenStreamForReadAsync();
             var bytes = new byte[(int)stream.Length];
             stream.Read(bytes, 0, (int)stream.Length);
+            MountainImage = bytes;
         }
 
         private void Submit(object sender, RoutedEventArgs e)
         {
+            MountainName = mountainName.Text;
+            MountainCountry = mountainCountry.Text;
+            //MountainHeight
+
             if (InputValid())
                 AddMountainToAPI();
         }

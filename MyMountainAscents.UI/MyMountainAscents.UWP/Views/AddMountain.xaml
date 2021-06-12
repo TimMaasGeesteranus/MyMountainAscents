@@ -22,19 +22,12 @@
         <Button Click="GoBack" HorizontalAlignment="Left" Content="Back" />
 
         <Grid HorizontalAlignment="Center" Grid.Row="1" Width="400">
-            
+
             <StackPanel>
-                <TextBlock Margin="0, 20, 0 ,0">Name:</TextBlock>
-                <TextBox />
-
-                <TextBlock Margin="0, 20, 0 ,0">Country:</TextBlock>
-                <TextBox />
-
-                <TextBlock Margin="0, 20, 0, 0">Height:</TextBlock>
-                <muxc:NumberBox Value="20" />
-
-                <TextBlock Margin="0, 20, 0, 0">Image:</TextBlock>
-                <Button Name="uploadButton" Click="AddImage" Content="Upload" />
+                <TextBox Name="mountainName" Margin="0, 20, 0, 0" Header="Name" />
+                <TextBox Name="mountainCountry" Margin="0, 20, 0, 0" Header="Country" />
+                <muxc:NumberBox Name="mountainHeight" Margin="0, 20, 0, 0" Header="Height" Value="20" />
+                <Button Margin="0, 20, 0, 0" Name="uploadButton" Click="AddImage" Content="Upload image" />
 
                 <Button Name="submitButton" Click="Submit" Content="Submit" Margin="0, 40, 0, 0" HorizontalAlignment="Right" />
             </StackPanel>
