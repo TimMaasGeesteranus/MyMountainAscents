@@ -3,16 +3,10 @@ using MyMountainAscents.UWP.ViewModels;
 using MyMountainAscents.UWP.Views;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
 
 namespace MyMountainAscents.UWP.UserControls
 {
@@ -21,11 +15,15 @@ namespace MyMountainAscents.UWP.UserControls
         public MountainCollectionViewModel Mountains { get; set; }
 
         private List<Mountain> mountainList;
-        public List<Mountain> MountainList {
+        public List<Mountain> MountainList
+        {
             get { return MountainList; }
-            set { mountainList = value;
+            set
+            {
+                mountainList = value;
                 Mountains = new MountainCollectionViewModel(mountainList);
-            } }
+            }
+        }
 
         public MountainCard()
         {
