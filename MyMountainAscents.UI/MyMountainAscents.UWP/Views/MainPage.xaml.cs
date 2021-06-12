@@ -25,16 +25,8 @@ namespace MyMountainAscents.UWP
     public sealed partial class MainPage : Page
     {
         public MountainCollectionViewModel Mountains;
-        private string test;
-        public string Test
-        {
-            get { return this.test; }
-            set
-            {
-                this.test = value;
-                this.OnPropertyChanged();
-            }
-        }
+        public string Test;
+
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public MainPage()
@@ -72,12 +64,6 @@ namespace MyMountainAscents.UWP
             {
                 var test = f;
             }
-        }
-
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            // Raise the PropertyChanged event, passing the name of the property whose value has changed.
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
