@@ -1,9 +1,10 @@
 ﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
 
 namespace MyMountainAscents.UWP.Views
 {
@@ -32,14 +33,20 @@ namespace MyMountainAscents.UWP.Views
             StorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
-                // Application now has read/write access to the picked file
-                OutputTextBlock.Text = "Picked photo: " + file.Name;
+                await ImageToBytes(file);
+                uploadButton.Content = "Uploaded";
             }
             else
             {
-                OutputTextBlock.Text = "Operation cancelled.";
             }
 
+        }
+
+        private async Task ImageToBytes(StorageFile image)
+        {
+            var stream = await image.OpenStreamForReadAsync();
+            var bytes = new byte[(int)stream.Length];
+            stream.Read(bytes, 0, (int)stream.Length);
         }
     }
 }
