@@ -5,11 +5,35 @@
     xmlns:local="using:MyMountainAscents.UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock>Add mountain</TextBlock>
+
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Name="name" Text="Add new mountain" FontSize="40" HorizontalAlignment="Center" />
+        <Button Click="GoBack" HorizontalAlignment="Left" Content="Back" />
+
+        <Grid HorizontalAlignment="Center" Grid.Row="1" Width="400">
+            
+            <StackPanel>
+                <TextBlock Margin="0, 20, 0 ,0">Name:</TextBlock>
+                <TextBox />
+
+                <TextBlock Margin="0, 20, 0 ,0">Country:</TextBlock>
+                <TextBox />
+
+                <TextBlock Margin="0, 20, 0, 0">Height:</TextBlock>
+                <muxc:NumberBox Value="20" />
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>

@@ -2,6 +2,9 @@
     x:Class="MyMountainAscents.UWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MyMountainAscents.UWP">
+    xmlns:local="using:MyMountainAscents.UWP" xmlns:controls="using:Microsoft.UI.Xaml.Controls">
+    <Application.Resources>
+        <controls:XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+    </Application.Resources>
 
 </Application>
