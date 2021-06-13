@@ -27,6 +27,8 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
+            <Image Source="{x:Bind local:DetailPage.GetImg()}" Height="180" Width="180" Stretch="UniformToFill"/>
+
             <TextBlock Name="country" Grid.Row="0" Text="Country" HorizontalAlignment="Center" />
             <TextBlock Name="height" Grid.Row="1" Text="Height" HorizontalAlignment="Center" />
             <TextBlock Name="ascents" Grid.Row="2" Text="Number of ascents" HorizontalAlignment="Center" />

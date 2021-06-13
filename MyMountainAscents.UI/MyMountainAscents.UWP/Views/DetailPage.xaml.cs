@@ -6,12 +6,14 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,6 +26,7 @@ namespace MyMountainAscents.UWP.Views
     public sealed partial class DetailPage : Page
     {
         Mountain Mountain;
+        public static byte[] Image;
         public DetailPage()
         {
             this.InitializeComponent();
@@ -32,6 +35,7 @@ namespace MyMountainAscents.UWP.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Mountain = (Mountain)e.Parameter;
+            Image = Mountain.Image;
             SetMountainValues();
             base.OnNavigatedTo(e);
         }
@@ -49,6 +53,19 @@ namespace MyMountainAscents.UWP.Views
             var button = sender as Button;
             Frame frame = Window.Current.Content as Frame;
             frame.Navigate(typeof(MainPage));
+        }
+
+        public static ImageSource GetImg()
+        {
+            BitmapImage image = new BitmapImage();
+            InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream();
+            ms.AsStreamForWrite().Write(Image, 0, Image.Length);
+            ms.Seek(0);
+
+            image.SetSource(ms);
+            ImageSource src = image;
+
+            return src;
         }
     }
 }
