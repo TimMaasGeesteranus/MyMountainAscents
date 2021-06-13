@@ -59,14 +59,18 @@ namespace MyMountainAscents.UWP.Views
         {
             MountainName = mountainName.Text;
             MountainCountry = mountainCountry.Text;
-            //MountainHeight
+            MountainHeight = Int32.Parse(mountainHeight.Text);
 
             if (InputValid())
                 AddMountainToAPI();
+            else
+                Warning.Text = "Input not valid, try again";
         }
 
         private bool InputValid()
         {
+            if (MountainCountry == null || MountainName == null || MountainImage == null)
+                return false;
             return true;
         }
 
