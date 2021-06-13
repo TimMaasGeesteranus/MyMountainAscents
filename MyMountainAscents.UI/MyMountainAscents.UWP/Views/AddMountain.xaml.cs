@@ -1,4 +1,5 @@
-﻿using MyMountainAscents.UWP.Services;
+﻿using MyMountainAscents.UWP.Models;
+using MyMountainAscents.UWP.Services;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -56,14 +57,18 @@ namespace MyMountainAscents.UWP.Views
             MountainImage = bytes;
         }
 
-        private void Submit(object sender, RoutedEventArgs e)
+        private async void Submit(object sender, RoutedEventArgs e)
         {
             MountainName = mountainName.Text;
             MountainCountry = mountainCountry.Text;
             MountainHeight = Int32.Parse(mountainHeight.Text);
 
             if (InputValid())
-                AddMountainToAPI();
+            {
+                await AddMountainToAPI();
+                GoToMainPage();
+            }
+
             else
                 Warning.Text = "Input not valid, try again";
         }
@@ -75,10 +80,17 @@ namespace MyMountainAscents.UWP.Views
             return true;
         }
 
-        private void AddMountainToAPI()
+        private async Task AddMountainToAPI()
         {
             DataService dataService = new DataService();
+            Mountain mountain = new Mountain(MountainName, MountainHeight, MountainCountry, MountainImage);
+            await dataService.AddMountain(mountain);
+        }
 
+        private void GoToMainPage()
+        {
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(MainPage));
         }
     }
 }
