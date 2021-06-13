@@ -43,9 +43,13 @@ namespace MyMountainAscents.UWP.Views
         private void SetMountainValues()
         {
             name.Text = Mountain.Name;
-            country.Text = Mountain.Country;
-            height.Text = Mountain.Height.ToString();
-            ascents.Text = Mountain.Ascents?.Count.ToString() ?? "0";
+            country.Text = "Country: " + Mountain.Country;
+            height.Text = "Height: " + Mountain.Height.ToString();
+
+            if (Mountain.Ascents == null)
+                ascents.Text = "Number of ascents: 0";
+            else
+                ascents.Text = "Number of ascents: " + Mountain.Ascents.Count.ToString();
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
