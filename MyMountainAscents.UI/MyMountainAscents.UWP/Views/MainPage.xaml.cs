@@ -1,4 +1,5 @@
 ﻿using MyMountainAscents.UWP.Models;
+using MyMountainAscents.UWP.Services;
 using MyMountainAscents.UWP.Views;
 using Newtonsoft.Json;
 using System;
@@ -24,29 +25,12 @@ namespace MyMountainAscents.UWP
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            DataService dataService = new DataService();
+            Mountains = new List<Mountain>();
             try
             {
-                var handler = new HttpClientHandler()
-                {
-                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-                };
-
-                using (var client = new HttpClient(handler))
-                {
-                    //client.BaseAddress = new Uri("https://localhost:44341/api/");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage response = await client.GetAsync("https://localhost:44341/api/mountain");
-                    string httpResponseBody = "";
-                    if (response.IsSuccessStatusCode)
-                    {
-                        httpResponseBody = await response.Content.ReadAsStringAsync();
-                        var result = JsonConvert.DeserializeObject<List<Mountain>>(httpResponseBody);
-                        Mountains = new List<Mountain>();
-                        Mountains = result;
-                        this.InitializeComponent();
-                    }
-                }
+                Mountains = await dataService.GetAllMountains();
+                this.InitializeComponent();
             }
             catch (Exception f)
             {

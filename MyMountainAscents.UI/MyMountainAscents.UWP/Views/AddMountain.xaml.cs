@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyMountainAscents.UWP.Services;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -76,6 +77,7 @@ namespace MyMountainAscents.UWP.Views
 
         private void AddMountainToAPI()
         {
+            DataService dataService = new DataService();
 
         }
     }
