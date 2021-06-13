@@ -15,25 +15,30 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-
         <TextBlock Name="name" Text="Name" FontSize="40" HorizontalAlignment="Center" />
         <Button Click="GoBack" HorizontalAlignment="Left" Content="Back" />
         <Button Click="GoToAddAscent" HorizontalAlignment="Right" Content="Add ascent" />
 
-        <Grid Grid.Row="1" Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+        <Image Grid.Row="1" Source="{x:Bind local:DetailPage.GetImg()}" Height="180" Width="180" Stretch="UniformToFill"/>
 
-            <StackPanel>
-                <Image Source="{x:Bind local:DetailPage.GetImg()}" Height="180" Width="180" Stretch="UniformToFill"/>
 
+        <Grid Grid.Row="2" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
                 <TextBlock Margin="0, 20, 0, 0" Name="country" Text="Country" HorizontalAlignment="Center" />
                 <TextBlock Name="height" Text="Height" HorizontalAlignment="Center" />
                 <TextBlock Name="ascents" Text="Number of ascents" HorizontalAlignment="Center" />
             </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Margin="0, 20, 0, 0" Text="Country" HorizontalAlignment="Center" />
+                <TextBlock Text="Height" HorizontalAlignment="Center" />
+                <TextBlock Text="Number of ascents" HorizontalAlignment="Center" />
+            </StackPanel>
+
 
         </Grid>
 
