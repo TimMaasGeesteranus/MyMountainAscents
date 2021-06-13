@@ -120,6 +120,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\DataService.cs" />
+    <Compile Include="Views\AddAscent.xaml.cs">
+      <DependentUpon>AddAscent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddMountain.xaml.cs">
       <DependentUpon>AddMountain.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\AddAscent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddMountain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

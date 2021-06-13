@@ -71,5 +71,11 @@ namespace MyMountainAscents.UWP.Views
 
             return src;
         }
+
+        private void GoToAddAscent(object sender, RoutedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(AddAscent), Mountain);
+        }
     }
 }
