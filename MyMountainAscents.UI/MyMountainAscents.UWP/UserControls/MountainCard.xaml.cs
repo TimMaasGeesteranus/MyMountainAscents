@@ -3,6 +3,8 @@ using MyMountainAscents.UWP.ViewModels;
 using MyMountainAscents.UWP.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -30,24 +32,17 @@ namespace MyMountainAscents.UWP.UserControls
             this.InitializeComponent();
         }
 
-
-        //public static ImageSource DoeIets(byte[] imageBytes)
-        //{
-        //    BitmapImage image = new BitmapImage();
-        //    InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream();
-        //    ms.AsStreamForWrite().Write(imageBytes, 0, imageBytes.Length);
-        //    ms.Seek(0);
-
-        //    image.SetSource(ms);
-        //    ImageSource src = image;
-
-        //    return src;
-        //}
-
-        public static ImageSource DoeIets(byte[] imageBytes)
+        public static ImageSource GetImg(byte[] imageBytes)
         {
-            ImageSource result = new BitmapImage(new Uri("ms-appx:///Assets/Mountains/Matterhorn.png"));
-            return result;
+            BitmapImage image = new BitmapImage();
+            InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream();
+            ms.AsStreamForWrite().Write(imageBytes, 0, imageBytes.Length);
+            ms.Seek(0);
+
+            image.SetSource(ms);
+            ImageSource src = image;
+
+            return src;
         }
 
         private void GoToDetails(object sender, RoutedEventArgs e)
