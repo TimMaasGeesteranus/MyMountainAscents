@@ -14,5 +14,8 @@ namespace MyMountainAscents.UWP.Models
 
         public string Comment { get; set; }
 
+        public Ascent(DateTime date, string comment)
+            => (Date, Comment) = (date, comment);
+
     }
 }

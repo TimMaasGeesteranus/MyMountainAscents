@@ -9,6 +9,27 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Name="name" Text="{x:Bind Mountain.Name}" />
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Name="name" Text="Add new ascent" FontSize="40" HorizontalAlignment="Center" />
+            <Button Click="GoBack" HorizontalAlignment="Left" Content="Back" />
+
+            <Grid HorizontalAlignment="Center" Grid.Row="1" Width="400">
+
+                <StackPanel>
+                    <DatePicker Name="date" Header="Date ascent" />
+                    <TextBox Name="comment" Margin="0, 20, 0, 0" Header="Description" TextWrapping="Wrap" AcceptsReturn="True" />
+
+                    <Button Name="submitButton" Click="Submit" Content="Submit" Margin="0, 40, 0, 0" HorizontalAlignment="Right" />
+                    <TextBlock Name="Warning" Foreground="red"/>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>
