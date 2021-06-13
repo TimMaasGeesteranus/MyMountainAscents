@@ -27,7 +27,7 @@ namespace MyMountainAscents.UWP.Views
         private void GoBack(object sender, RoutedEventArgs e)
         {
             Frame frame = Window.Current.Content as Frame;
-            frame.Navigate(typeof(MainPage));
+            frame.Navigate(typeof(DetailPage), Mountain);
         }
 
         private async void Submit(object sender, RoutedEventArgs e)
@@ -38,6 +38,7 @@ namespace MyMountainAscents.UWP.Views
             if (InputValid())
             {
                 await AddAscentToAPI();
+                GoToDetails();
             }
             else
                 Warning.Text = "Input not valid, try again";
@@ -55,6 +56,12 @@ namespace MyMountainAscents.UWP.Views
             DataService dataService = new DataService();
             Ascent ascent = new Ascent(Date.DateTime, Comment);
             await dataService.AddAscent(ascent, Mountain.Id);
+        }
+
+        private void GoToDetails()
+        {
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(DetailPage), Mountain);
         }
     }
 }
