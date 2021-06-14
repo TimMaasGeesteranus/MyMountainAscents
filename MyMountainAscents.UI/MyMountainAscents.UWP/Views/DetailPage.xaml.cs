@@ -85,6 +85,8 @@ namespace MyMountainAscents.UWP.Views
             Guid guid = (Guid)button.Tag;
             DataService dataService = new DataService();
             await dataService.DeleteAscent(guid);
+            Mountain.Ascents.Remove(Mountain.Ascents.Single(x => x.Id == guid));
+            // remove item from list
         }
     }
 }
