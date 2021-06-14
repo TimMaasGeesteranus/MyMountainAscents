@@ -22,7 +22,7 @@ namespace MyMountainAscents.API.Controllers
 
         [HttpGet]
         public IActionResult GetAllMountains2()
-            => Ok(_appDbContext.Mountains);
+            => Ok(_appDbContext.Mountains.Include(x => x.Ascents));
 
         [HttpGet("{guid}")]
         public IActionResult GetMountainByGuid(Guid guid)
