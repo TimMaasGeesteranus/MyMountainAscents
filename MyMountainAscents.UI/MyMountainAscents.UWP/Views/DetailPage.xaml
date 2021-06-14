@@ -39,18 +39,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:Ascent">
                         <StackPanel>
-                            <TextBlock FontWeight="Bold" Text="{x:Bind Date.Date}" />
-                            <TextBlock Text="{x:Bind Comment}" />
+                            <TextBlock FontWeight="Bold" Text="{x:Bind Date.ToShortDateString()}" />
+                            <TextBlock TextWrapping="WrapWholeWords" Text="{x:Bind Comment}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                
             </ListView>
-
-
         </Grid>
-
-
-
     </Grid>
 </Page>
