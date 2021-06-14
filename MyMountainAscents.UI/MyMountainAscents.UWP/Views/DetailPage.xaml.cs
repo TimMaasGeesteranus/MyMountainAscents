@@ -1,4 +1,5 @@
 ﻿using MyMountainAscents.UWP.Models;
+using MyMountainAscents.UWP.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -76,6 +77,14 @@ namespace MyMountainAscents.UWP.Views
         {
             Frame frame = Window.Current.Content as Frame;
             frame.Navigate(typeof(AddAscent), Mountain);
+        }
+
+        private async void DeleteAscent(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            Guid guid = (Guid)button.Tag;
+            DataService dataService = new DataService();
+            await dataService.DeleteAscent(guid);
         }
     }
 }

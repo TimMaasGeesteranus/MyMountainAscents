@@ -88,5 +88,29 @@ namespace MyMountainAscents.UWP.Services
                     return null;
             }
         }
+
+        public async Task<Ascent> DeleteAscent(Guid guid)
+        {
+            var handler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            };
+
+            using (var client = new HttpClient(handler))
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = await client.DeleteAsync($"https://localhost:44341/api/ascent/{guid}");
+                string httpResponseBody = "";
+                if (response.IsSuccessStatusCode)
+                {
+                    httpResponseBody = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<Ascent>(httpResponseBody);
+                    return result;
+                }
+                else
+                    return null;
+            }
+        }
     }
 }

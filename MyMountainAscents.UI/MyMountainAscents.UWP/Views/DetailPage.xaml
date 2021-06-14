@@ -54,9 +54,7 @@
                                 <TextBlock TextWrapping="WrapWholeWords" Text="{x:Bind Comment}" />
                             </StackPanel>
 
-                            <Button Margin="10, 0, 0, 0" Grid.Column="1" Content="Delete"/>
-
-
+                            <Button Click="DeleteAscent" Tag="{x:Bind Id}" Margin="10, 0, 0, 0" Grid.Column="1" Content="Delete"/>
                         </Grid>
                     </DataTemplate>
                     </ListView.ItemTemplate>
