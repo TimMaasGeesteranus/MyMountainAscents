@@ -35,16 +35,37 @@
                 <TextBlock Name="ascents" Text="Number of ascents" HorizontalAlignment="Center" />
             </StackPanel>
 
-            <ListView Grid.Column="1" ItemsSource="{x:Bind Mountain.Ascents}">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Ascent">
-                        <StackPanel>
-                            <TextBlock FontWeight="Bold" Text="{x:Bind Date.ToShortDateString()}" />
-                            <TextBlock TextWrapping="WrapWholeWords" Text="{x:Bind Comment}" />
-                        </StackPanel>
+
+
+
+                <ListView Grid.Column="1" ItemsSource="{x:Bind Mountain.Ascents}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Ascent">
+
+                        <Grid Grid.Column="1" Margin="0, 0, 0, 10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontWeight="Bold" Text="{x:Bind Date.ToShortDateString()}" />
+                                <TextBlock TextWrapping="WrapWholeWords" Text="{x:Bind Comment}" />
+                            </StackPanel>
+
+                            <Button Margin="10, 0, 0, 0" Grid.Column="1" Content="Delete"/>
+
+
+                        </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+
+
         </Grid>
     </Grid>
 </Page>
