@@ -56,6 +56,7 @@ namespace MyMountainAscents.UWP.Views
             DataService dataService = new DataService();
             Ascent ascent = new Ascent(Date.DateTime, Comment);
             await dataService.AddAscent(ascent, Mountain.Id);
+            Mountain = await dataService.GetMountain(Mountain.Id);
         }
 
         private void GoToDetails()

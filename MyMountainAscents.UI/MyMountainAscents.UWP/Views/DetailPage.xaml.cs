@@ -82,11 +82,17 @@ namespace MyMountainAscents.UWP.Views
         private async void DeleteAscent(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
+            button.IsEnabled = false;
             Guid guid = (Guid)button.Tag;
             DataService dataService = new DataService();
             await dataService.DeleteAscent(guid);
+
             Mountain.Ascents.Remove(Mountain.Ascents.Single(x => x.Id == guid));
-            // remove item from list
+
+
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(DetailPage), Mountain);
+
         }
     }
 }
