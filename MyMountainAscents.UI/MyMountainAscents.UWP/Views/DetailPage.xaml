@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0">
+            <StackPanel HorizontalAlignment="Right" Grid.Column="0" Margin="0, 0, 20, 0">
                 <TextBlock Margin="0, 20, 0, 0" Name="country" Text="Country" HorizontalAlignment="Center" />
                 <TextBlock Name="height" Text="Height" HorizontalAlignment="Center" />
                 <TextBlock Name="ascents" Text="Number of ascents" HorizontalAlignment="Center" />
@@ -40,7 +40,7 @@
 
 
 
-                <ListView Grid.Column="1" ItemsSource="{x:Bind Mountain.Ascents}" SelectionMode="None">
+                <ListView Grid.Column="1" Margin="20, 0, 0, 0" ItemsSource="{x:Bind Mountain.Ascents}" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="models:Ascent">
 
