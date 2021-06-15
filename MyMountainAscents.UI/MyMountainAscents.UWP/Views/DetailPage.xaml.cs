@@ -89,10 +89,20 @@ namespace MyMountainAscents.UWP.Views
 
             Mountain.Ascents.Remove(Mountain.Ascents.Single(x => x.Id == guid));
 
-
             Frame frame = Window.Current.Content as Frame;
             frame.Navigate(typeof(DetailPage), Mountain);
+        }
 
+        private async void DeleteMountain(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            button.IsEnabled = false;
+
+            DataService dataService = new DataService();
+            await dataService.DeleteMountain(Mountain.Id);
+
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(MainPage));
         }
     }
 }
