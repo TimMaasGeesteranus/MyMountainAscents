@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Windows.UI.Xaml;
@@ -31,6 +32,8 @@ namespace MyMountainAscents.UWP
             {
                 Mountains = await dataService.GetAllMountains();
                 this.InitializeComponent();
+                if (!Mountains.Any())
+                    warning.Text = "No mountains (yet)";
             }
             catch (Exception f)
             {

@@ -12,7 +12,6 @@
     Name="MyMountainAscents"
     >
     
-
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -23,6 +22,8 @@
         <Button Grid.Row="0" Content="Add Mountain" HorizontalAlignment="Right" Click="GoToAddMountain" />
 
         <usercontrols:MountainCard Grid.Row="1" Margin="40" MountainList="{x:Bind Mountains}" Name="mountaincard"/>
+
+        <TextBlock Grid.Row="1" Text=" " Name="warning" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>
 </Page>
