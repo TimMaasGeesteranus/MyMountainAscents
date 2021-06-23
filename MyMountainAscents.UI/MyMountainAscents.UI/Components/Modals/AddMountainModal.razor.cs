@@ -21,6 +21,7 @@ namespace MyMountainAscents.UI.Components.Modals
         protected Mountain NewMountain = new();
 
         protected (bool ShowBackdrop, string Class) Modal = (false, "");
+        protected string ErrorText = "";
 
         public void Open()
         {
@@ -32,6 +33,7 @@ namespace MyMountainAscents.UI.Components.Modals
         {
             Console.WriteLine("0");
             Modal = (false, "");
+            ErrorText = "";
             StateHasChanged();
         }
 
@@ -45,6 +47,8 @@ namespace MyMountainAscents.UI.Components.Modals
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                ErrorText = "Ensure all data is filled in correctly then try again";
+                StateHasChanged();
             }
         }
 

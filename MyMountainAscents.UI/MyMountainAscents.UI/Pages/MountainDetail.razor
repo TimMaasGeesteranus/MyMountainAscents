@@ -3,7 +3,10 @@
 <div style="text-align:center">
     @if (Mountain != null)
     {
-        <img src="@imgSrc" alt="Card image cap" style="border-radius:50%">
+        if (imgSrc != null)
+        {
+            <img src="@imgSrc" alt="Card image cap" style="border-radius:50%; max-height:300px;">
+        }
         <h1 class="display-4">@Mountain.Name</h1>
         <br />
         <div class="d-flex justify-content-center">
@@ -13,7 +16,7 @@
             <div class="p-2">
                 <button class="btn btn-danger" @onclick="Delete">Delete mountain</button>
             </div>
-        </div>    
+        </div>
 
         <div class="d-flex justify-content-around">
             <div class="p-2" style="text-align:left;">
